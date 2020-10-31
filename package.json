@@ -1,0 +1,16 @@
+{
+  "name": "Babel-Coder-React-Fundamentals",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Eji4h/Babel-Coder-React-Fundamentals.git",
+  "author": "Yosapol Jitrak <yosapoljittarak@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently -k yarn:start:api yarn:start:ui",
+    "start:api": "yarn --cwd api start",
+    "start:ui": "yarn --cwd ui start"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
