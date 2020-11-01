@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import useFetch from '../useFetch';
 
 interface Post {
   id: number;
@@ -8,18 +8,10 @@ interface Post {
 }
 
 const PostList = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [posts, setPosts] = useState<Post[]>([]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const fetchPosts = async () => {
-      const { data } = await axios.get('/posts');
-      setPosts(data);
-    };
-    fetchPosts();
-    setIsLoading(false);
-  }, []);
+  const {
+    data: posts,
+    isLoading,
+  }: { data: Post[]; isLoading: boolean } = useFetch('/posts');
 
   if (isLoading) {
     return <div>isLoading...</div>;
